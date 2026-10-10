@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="VideoForge AI - أدوات فيديو تعمل داخل المتصفح">
+  <title>VideoForge AI</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dialog.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="VideoForge AI الرئيسية">
+      <span class="brand-mark">VF</span>
+      <span><strong>VideoForge</strong><small>استوديو أدوات الفيديو</small></span>
+    </a>
+    <span class="runtime-badge"><i></i> يعمل داخل المتصفح</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">مساحة عمل بسيطة وقابلة للتوسع</p>
+        <h1>كل أدوات الفيديو<br><span>في مكان واحد.</span></h1>
+        <p class="hero-text">ارفع ملفك، اختر الأداة التي تحتاجها، وشغّلها عند الطلب. لا يتم رفع الفيديو إلى خادم؛ يبقى الملف داخل متصفحك.</p>
+        <a class="button button-primary" href="#workspace">ابدأ الآن <span aria-hidden="true">←</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-play">▶</div><div class="art-line line-one"></div><div class="art-line line-two"></div>
+        <div class="art-chip chip-one">✂ قص</div><div class="art-chip chip-two">♫ صوت</div><div class="art-chip chip-three">CC ترجمة</div>
+      </div>
+    </section>
+
+    <section id="workspace" class="workspace-grid">
+      <div class="panel upload-panel">
+        <div class="section-heading"><div><p class="eyebrow">الخطوة 01</p><h2>ملف الفيديو</h2></div><span class="step-icon">↑</span></div>
+        <label class="drop-zone" id="dropZone" for="videoInput">
+          <input id="videoInput" type="file" accept="video/*">
+          <span class="upload-icon">⇧</span>
+          <strong>اضغط لاختيار فيديو</strong>
+          <span>أو اسحبه إلى هنا</span>
+          <small>MP4، MOV، WebM وغيرها حسب دعم المتصفح</small>
+        </label>
+        <div id="fileDetails" class="file-details hidden"></div>
+        <video id="videoPreview" class="video-preview hidden" controls preload="metadata"></video>
+        <button id="clearVideo" class="button button-quiet hidden" type="button">إزالة الفيديو</button>
+        <p class="privacy-note"><span>●</span> ملفك لا يُرسل إلى خادم من خلال هذه الصفحة.</p>
+      </div>
+
+      <div class="panel tools-panel">
+        <div class="section-heading"><div><p class="eyebrow">الخطوة 02</p><h2>اختر الأداة</h2></div><span class="count-pill" id="toolCount">0 أدوات</span></div>
+        <label class="search-box"><span>⌕</span><input id="toolSearch" type="search" placeholder="ابحث عن أداة..."></label>
+        <div id="toolsList" class="tools-list"></div>
+        <div class="tool-hint">لإضافة أداة أو حذفها، عدّل ملف <code>assets/js/tools/registry.js</code>.</div>
+      </div>
+    </section>
+
+    <section class="panel queue-panel">
+      <div class="section-heading queue-heading">
+        <div><p class="eyebrow">الخطوة 03</p><h2>طابور المهام</h2><p class="muted">شغّل كل مهمة يدويًا وتابع حالتها هنا.</p></div>
+        <button id="clearQueue" class="button button-quiet" type="button">مسح المهام المنتهية</button>
+      </div>
+      <div id="queueEmpty" class="queue-empty"><span>☷</span><strong>لا توجد مهام بعد</strong><small>اختر أداة ثم اضغط «إضافة إلى الطابور».</small></div>
+      <div id="queueList" class="queue-list"></div>
+    </section>
+
+    <section class="notice">
+      <strong>معلومة مهمة</strong>
+      <p>هذه نسخة تأسيسية ثابتة مناسبة لـGitHub Pages. طابور المهام هنا يعمل داخل الصفحة الحالية فقط، وليس طابور خادم دائمًا. بعض العمليات مثل التفريغ الصوتي بالذكاء الاصطناعي أو معالجة ملفات كبيرة قد تحتاج مكتبات متصفح إضافية أو API خارجيًا.</p>
+    </section>
+    <footer><span>VideoForge AI</span><span>HTML · CSS · JavaScript</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
